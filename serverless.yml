@@ -45,9 +45,15 @@ functions:
   app:
     handler: handler.app
     events:
-     - http:
-         path: users/create
-         method: get
+      - http:
+          path: /
+          method: get
+  saveCredentials:
+    handler: handler.saveCredentials
+    events:
+      - http:
+          path: /credentials/add
+          method: post
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

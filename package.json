@@ -1,0 +1,11 @@
+{
+  "name": "serverless-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kevinkong91/serverless-setup.git",
+  "author": "Kevin Kong <kevinkong91@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "querystring": "^0.2.0"
+  }
+}

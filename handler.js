@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports.app = (event, context, callback) => {
+const queryString = require('querystring')
+
+const app = (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
@@ -10,7 +12,22 @@ module.exports.app = (event, context, callback) => {
   };
 
   callback(null, response);
+}
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
-};
+const saveCredentials = (event, context, callback) => {
+  const params = queryString.parse(event.body)
+  const email = params.email
+  const password = params.password
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: `Successfully saved credentials! ${params}`
+    })
+  }
+  callback(null, response)
+}
+
+module.exports = {
+  app,
+  saveCredentials
+}
